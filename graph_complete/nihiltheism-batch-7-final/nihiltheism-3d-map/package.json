@@ -1,0 +1,59 @@
+{
+  "name": "nihiltheism-3d-knowledge-map",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "3D Knowledge Graph Application for Nihiltheism Philosophy",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:ai\"",
+    "dev:frontend": "vite",
+    "dev:backend": "nodemon backend/server.js",
+    "dev:ai": "cd ai-service && uvicorn main:app --reload --port 8001",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "setup": "node scripts/setup-db.js",
+    "seed": "node scripts/seed-data.js",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"backend/**/*.js\""
+  },
+  "dependencies": {
+    "three": "^0.160.0",
+    "@react-three/fiber": "^8.15.0",
+    "@react-three/drei": "^9.96.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.5.0",
+    "dexie": "^3.2.4",
+    "uuid": "^9.0.1",
+    "date-fns": "^3.0.6",
+    "fuse.js": "^7.0.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "mongodb": "^6.3.0",
+    "dotenv": "^16.3.1",
+    "body-parser": "^1.20.2",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "openai": "^4.24.1",
+    "natural": "^6.10.4",
+    "compromise": "^14.11.0",
+    "ml-distance": "^4.0.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.11",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@types/uuid": "^9.0.7",
+    "@types/three": "^0.160.0",
+    "typescript": "^5.3.3",
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
